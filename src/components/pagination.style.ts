@@ -29,6 +29,9 @@ export const PAGINATION_STYLE = `
     width: 110px;
     display: inline-table;
 }
+.pagination-page .input-group-addon {
+    display: inline;
+}
 .pagination-box button {
     outline: none !important;
 }

@@ -214,11 +214,11 @@ export class DataTable implements DataTableParams, OnInit {
     @Output() headerClick = new EventEmitter();
     @Output() cellClick = new EventEmitter();
 
-    private rowClicked(row: DataTableRow, event) {
+    public rowClicked(row: DataTableRow, event) {
         this.rowClick.emit({ row, event });
     }
 
-    private rowDoubleClicked(row: DataTableRow, event) {
+    public rowDoubleClicked(row: DataTableRow, event) {
         this.rowDoubleClick.emit({ row, event });
     }
 
@@ -268,7 +268,7 @@ export class DataTable implements DataTableParams, OnInit {
         return count;
     }
 
-    private getRowColor(item: any, index: number, row: DataTableRow) {
+    public getRowColor(item: any, index: number, row: DataTableRow) {
         if (this.rowColors !== undefined) {
             return (<RowCallback>this.rowColors)(item, row, index);
         }
@@ -325,7 +325,7 @@ export class DataTable implements DataTableParams, OnInit {
     // other:
 
     get substituteItems() {
-        return Array.from({ length: this.displayParams.limit - this.items.length });
+        return Array.from({ length: this.displayParams!.limit - this.items.length });
     }
 
     // column resizing:
