@@ -1,23 +1,30 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "declaration": true,
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "esnext",
+    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "mapRoot": "/",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "noEmitOnError": true,
-    "noImplicitAny": false,
-    "outDir": "dist/",
-    "rootDir": "src/",
-    "sourceMap": true,
-    "target": "es5",
-    "inlineSources": true
-  },
-  "exclude": [
-    "dist",
-    "node_modules",
-    "index.ts"
-  ]
+    "importHelpers": true,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "ng-data-table": [
+        "dist/ng-data-table"
+      ],
+      "ng-data-table/*": [
+        "dist/ng-data-table/*"
+      ]
+    }
+  }
 }

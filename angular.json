@@ -1,0 +1,154 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ng-data-table": {
+      "projectType": "library",
+      "root": "projects/ng-data-table",
+      "sourceRoot": "projects/ng-data-table/src",
+      "prefix": "ng-dt",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-data-table/tsconfig.lib.json",
+            "project": "projects/ng-data-table/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-data-table/src/test.ts",
+            "tsConfig": "projects/ng-data-table/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-data-table/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-data-table/tsconfig.lib.json",
+              "projects/ng-data-table/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ng-data-table-demo": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ng-data-table-demo",
+      "sourceRoot": "projects/ng-data-table-demo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ng-data-table-demo",
+            "index": "projects/ng-data-table-demo/src/index.html",
+            "main": "projects/ng-data-table-demo/src/main.ts",
+            "polyfills": "projects/ng-data-table-demo/src/polyfills.ts",
+            "tsConfig": "projects/ng-data-table-demo/tsconfig.app.json",
+            "assets": [
+              "projects/ng-data-table-demo/src/favicon.ico",
+              "projects/ng-data-table-demo/src/assets"
+            ],
+            "styles": [
+              "projects/ng-data-table-demo/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ng-data-table-demo/src/environments/environment.ts",
+                  "with": "projects/ng-data-table-demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ng-data-table-demo:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ng-data-table-demo:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ng-data-table-demo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-data-table-demo/src/test.ts",
+            "polyfills": "projects/ng-data-table-demo/src/polyfills.ts",
+            "tsConfig": "projects/ng-data-table-demo/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-data-table-demo/karma.conf.js",
+            "assets": [
+              "projects/ng-data-table-demo/src/favicon.ico",
+              "projects/ng-data-table-demo/src/assets"
+            ],
+            "styles": [
+              "projects/ng-data-table-demo/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-data-table-demo/tsconfig.app.json",
+              "projects/ng-data-table-demo/tsconfig.spec.json",
+              "projects/ng-data-table-demo/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ng-data-table-demo/e2e/protractor.conf.js",
+            "devServerTarget": "ng-data-table-demo:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ng-data-table-demo:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "ng-data-table"
+}

@@ -1,7 +1,7 @@
 {
-  "name": "angular-2-data-table-bootstrap4",
-  "version": "0.1.6",
-  "description": "An Angular 2 data table, with pagination, sorting, expandable rows etc. Bootstrap 4 version.",
+  "name": "angular-data-table",
+  "version": "0.1.0",
+  "description": "An Angular data table, with pagination, sorting, expandable rows etc. Bootstrap 4 version.",
   "keywords": [
     "angular",
     "angular2",
@@ -12,30 +12,54 @@
     "data table",
     "pagination"
   ],
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "rimraf dist/* && tsc && node src/tasks/replace.js",
-    "serve": "rimraf dist/ && tsc -w && node src/tasks/replace.js",
-    "prepublish": "npm run build"
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://git@github.com/scotteby/angular-2-data-table.git"
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~8.0.0",
+    "@angular/common": "~8.0.0",
+    "@angular/compiler": "~8.0.0",
+    "@angular/core": "~8.0.0",
+    "@angular/forms": "~8.0.0",
+    "@angular/platform-browser": "~8.0.0",
+    "@angular/platform-browser-dynamic": "~8.0.0",
+    "@angular/router": "~8.0.0",
+    "rxjs": "~6.4.0",
+    "tslib": "^1.9.0",
+    "zone.js": "~0.9.1",
+    "bootstrap": "^4.3.1",
+    "@fortawesome/fontawesome-free": "^5.9.0"
   },
-  "peerDependencies": {
-    "@angular/core": "^2.0.0"
-  },
-  "author": "echobravoyankee <scott.m.eby@gmail.com>",
+  "author": "Vince Do <vdo2000@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@angular/common": "^2.0.0",
-    "@angular/core": "^2.0.0",
-    "@angular/forms": "^2.0.0",
-    "rxjs": "^5.0.0-beta.12",
-    "typescript": "^2.0.2"
-  },
-  "dependencies": {
-    "replace": "^0.3.0"
+    "@angular-devkit/build-angular": "~0.800.0",
+    "@angular-devkit/build-ng-packagr": "~0.800.0",
+    "@angular/cli": "~8.0.2",
+    "@angular/compiler-cli": "~8.0.0",
+    "@angular/language-service": "~8.0.0",
+    "@types/node": "~8.9.4",
+    "@types/jasmine": "~3.3.8",
+    "@types/jasminewd2": "~2.0.3",
+    "codelyzer": "^5.0.0",
+    "jasmine-core": "~3.4.0",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~4.1.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "~2.0.1",
+    "karma-jasmine": "~2.0.1",
+    "karma-jasmine-html-reporter": "^1.4.0",
+    "ng-packagr": "^5.1.0",
+    "protractor": "~5.4.0",
+    "ts-node": "~7.0.0",
+    "tsickle": "^0.35.0",
+    "tslint": "~5.15.0",
+    "typescript": "~3.4.3"
   }
 }
